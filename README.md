@@ -5,12 +5,14 @@
 ![Teaser image](./COGMEN_architecture.png)
 **Picture:** *COGMEN Model Architecture*
 
-This repository contains the official Pytorch implementation of the following paper:
+This repository contains the official Pytorch Re-implementation of the following paper:
 > **COGMEN: COntextualized GNN based Multimodal Emotion recognitioN**<br>
 
-> **Paper:** https://arxiv.org/abs/2205.02455
+> **Original Paper:** https://arxiv.org/abs/2205.02455
 
-> **Authors:** Abhinav Joshi, Ashwani Bhat, Ayush Jain, Atin Vikram Singh, Ashutosh Modi<br>
+> **Reimplemented Paper:** [Reimplemented Paper](./COGMEN_Re_Implementation_Final_Srijan.pdf)
+
+> **Authors:** Srijan<br>
 >
 > **Abstract:** *Emotions are an inherent part of human interactions, and consequently, it is imperative to develop AI systems that understand and recognize human emotions. During a conversation involving various people, a person’s emotions are influenced by the other speaker’s utterances and their own emotional state over the utterances. In this paper, we propose COntextualized Graph Neural Network based Multimodal Emotion recognitioN (COGMEN) system that leverages local information (i.e., inter/intra dependency between speakers) and global information (context). The proposed model uses Graph Neural Network (GNN) based architecture to model the complex dependencies (local and global information) in a conversation. Our model gives state-of-theart (SOTA) results on IEMOCAP and MOSEI datasets, and detailed ablation experiments
 show the importance of modeling information at both levels*
@@ -31,11 +33,12 @@ show the importance of modeling information at both levels*
 
 ## Preparing datasets for training
 
-        python preprocess.py --dataset="iemocap_4"
+        python preprocess.py --dataset="iemocap_4" 
 
 ## Training networks 
 
-        python train.py --dataset="iemocap_4" --modalities="atv" --from_begin --epochs=55
+        python train.py --dataset="iemocap_4" --modalities="atv" --from_begin --epochs=55 --drop_rate=0.5 --seqcontext_nlayer=6 --optimizer="rmsprop"
+
 
 ## Run Evaluation [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1biIvonBdJWo2TiYyTiQkxZ_V88JEXa_d?usp=sharing)
 

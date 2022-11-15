@@ -1,3 +1,6 @@
+"""Main script to run the training of the model.
+"""
+
 from comet_ml import Experiment, Optimizer
 
 import argparse
@@ -240,11 +243,13 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--comet_api_key",
+        default="api_key",
         type=str,
         help="comet api key, required for logging experiments on comet.ml",
     )
     parser.add_argument(
         "--comet_workspace",
+        default="srijan221",
         type=str,
         help="comet comet_workspace, required for logging experiments on comet.ml",
     )
@@ -291,7 +296,7 @@ if __name__ == "__main__":
     if args.log_in_comet and not args.tuning:
         experiment = Experiment(
             api_key=args.comet_api_key,
-            project_name="hyperparam-mosei",
+            project_name="cogmen",
             workspace=args.comet_workspace,
         )
         args.experiment = experiment
